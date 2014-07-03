@@ -45,11 +45,14 @@ struct node *add_to_front(struct node *new_node, struct node *list)
 int main(int argc, const char *argv[])
 {
 	struct node *list_start = NULL;
-	
+	struct node *tmp;
 	list_start = create_node(4, NULL);
-	list_start = add_to_front(create_node(60, list_start), list_start);
-
-	print_list(list_start);
+	tmp = create_node(55, list_start);
+	
+	// List start points to whatever tmp is pointing to
+	list_start = tmp;
+	
+	printf("%p %p\n", tmp, list_start);
 	
 	return 0;
 }
